@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRightIcon,
@@ -17,11 +18,16 @@ export default function Home() {
     <>
       <Hero />
       <Section id="about" index="01" title="About">
-        <Reveal className="max-w-3xl space-y-5 text-lg leading-relaxed text-muted">
-          {about.map((p) => (
-            <p key={p.slice(0, 24)}>{p}</p>
-          ))}
-        </Reveal>
+        <div className="grid items-start gap-10 lg:grid-cols-[1.4fr_1fr]">
+          <Reveal className="space-y-5 text-lg leading-relaxed text-muted">
+            {about.map((p) => (
+              <p key={p.slice(0, 24)}>{p}</p>
+            ))}
+          </Reveal>
+          <Reveal delay={150}>
+            <Terminal />
+          </Reveal>
+        </div>
       </Section>
       <Section id="experience" index="02" title="Experience">
         <Experience />
@@ -48,6 +54,14 @@ function Hero() {
       <div className="mx-auto grid max-w-5xl items-center gap-12 px-4 pt-20 pb-16 sm:px-6 sm:pt-28 lg:grid-cols-[1.25fr_1fr]">
         {/* Not wrapped in Reveal: the headline must paint before JavaScript loads */}
         <div>
+          <Image
+            src={site.photo}
+            alt={`Portrait of ${site.name}`}
+            width={96}
+            height={96}
+            priority
+            className="mb-6 size-24 rounded-full border-2 border-line object-cover lg:hidden"
+          />
           <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-card/60 px-3 py-1 text-xs text-muted">
             <span className="relative flex size-2">
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-60 motion-reduce:animate-none" />
@@ -93,11 +107,31 @@ function Hero() {
             </div>
           </div>
         </div>
-        <Reveal delay={150}>
-          <Terminal />
-        </Reveal>
+        <Portrait />
       </div>
     </section>
+  );
+}
+
+function Portrait() {
+  return (
+    <div className="relative mx-auto hidden w-full max-w-sm lg:block">
+      <div className="absolute -inset-6 rounded-[2.5rem] bg-accent/15 blur-3xl" aria-hidden="true" />
+      <div className="relative rounded-[2rem] border border-line bg-card p-2 shadow-2xl shadow-black/5 dark:shadow-black/40">
+        <Image
+          src={site.photo}
+          alt={`Portrait of ${site.name}`}
+          width={720}
+          height={720}
+          priority
+          className="aspect-square w-full rounded-[1.5rem] object-cover"
+        />
+      </div>
+      <p className="absolute -bottom-4 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 rounded-full border border-line bg-card px-4 py-2 text-sm font-medium whitespace-nowrap shadow-lg shadow-black/5">
+        <span className="size-2 rounded-full bg-accent" aria-hidden="true" />
+        Open to AI &amp; full-stack roles
+      </p>
+    </div>
   );
 }
 

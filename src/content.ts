@@ -11,6 +11,7 @@ export const site = {
   github: "https://github.com/knah1d",
   linkedin: "https://linkedin.com/in/knah1d",
   resume: "/Kazi_Nahid_Resume.pdf",
+  photo: "/profile.webp",
 };
 
 export const hero = {
