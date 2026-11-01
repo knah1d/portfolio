@@ -18,7 +18,7 @@ export const hero = {
   status: "Junior Software Engineer at LEADS Corporation",
   headline: "I build AI features people can trust — and the full-stack systems around them.",
   intro:
-    "Software engineer working on a banking HRM platform by day, and on satellite-driven carbon verification for my final-year project. I like LLMs that stay reproducible, models that explain instead of decide, and systems with an audit trail.",
+    "Software engineer working on a banking HRM platform by day, and on Terra Audit, which turns satellite radar into carbon credits. I like LLMs that stay reproducible, models that explain instead of decide, and systems with an audit trail.",
 };
 
 export const about = [
@@ -78,7 +78,7 @@ export const projects: Project[] = [
     name: "Terra Audit",
     tagline: "AI-assisted carbon credit verification from satellite radar",
     period: "May 2026 — Present",
-    kind: "Final-year project · Solo",
+    kind: "Solo project · Final year, IIT DU",
     description:
       "Detects Alternate Wetting and Drying in rice fields from Sentinel-1 radar and turns it into reviewed, verifier-ready carbon credit reports under Verra VM0051 and VM0042. Deterministic engines compute every number; ML and an LLM only advise and explain.",
     stats: [
