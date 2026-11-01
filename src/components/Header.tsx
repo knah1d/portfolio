@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/content";
 import { DownloadIcon } from "./icons";
@@ -20,9 +21,13 @@ export function Header() {
           className="flex items-center gap-2.5 font-semibold tracking-tight"
           aria-label="Kazi Nahid — home"
         >
-          <span className="grid size-8 place-items-center rounded-lg bg-fg font-mono text-xs font-bold text-bg">
-            KN
-          </span>
+          <Image
+            src={site.photo}
+            alt=""
+            width={32}
+            height={32}
+            className="size-8 rounded-full object-cover ring-2 ring-line transition-shadow hover:ring-accent"
+          />
           <span className="hidden sm:inline">{site.name}</span>
         </Link>
 
